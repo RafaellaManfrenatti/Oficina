@@ -30,7 +30,7 @@
                 <h3>Menu</h2>
                <ul class="navbar-nav mr-auto menu2">
                         <li class="nav-item active">
-                          <a class="nav-link" href="#">Home <span class="sr-only">(página atual)</span></a>
+                          <a class="nav-link" href="index.php">Home <span class="sr-only">(página atual)</span></a>
                         </li>
                         
                         <li class="nav-item">
@@ -38,10 +38,10 @@
                         </li><li class="nav-item">
                           <a class="nav-link" href="#">Serviços Elétricos</a>
                         </li><li class="nav-item">
-                          <a class="nav-link" href="#">Nossa Oficina</a>
+                          <a class="nav-link" href="nossaoficina.php">Nossa Oficina</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Fale Conosco</a>
+                          <a class="nav-link" href="faleconosco.php">Fale Conosco</a>
                         </li>
                       </ul>
             </div>
