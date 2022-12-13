@@ -82,3 +82,27 @@ insert into cliente(cpf,nome,telefone,cep,numerocasa,complemento) VALUES('123456
 
 insert into funcionario(nome,telefone,cpf,qualificacao,experiencia,cep,numerocasa,complemento) VALUES('Maria','(21)99886-4587','123456789-10','Mecanico','4 anos','26551-090',100,'apartamento10');
 insert into veiculo(placa,marca,modelo,cor,ano,cpf) VALUES('KPZ2020','Wolkswagem','T-Cross','Branco','2020','123456789-10');
+
+insert into veiculo(placa,modelo,cor,ano,marca,cpf) VALUES('LBM2411','Uno','Vermelho','2009','FIAT','123456789-12');
+
+insert into servico(placa,garantia,valor,formapag,defeito,dataent,datasaida) VALUES('LBM2411','3meses','1000','Cartão',
+'Troca de óleo','2022/11/22','2022/11/23'),('KPO9030','4meses','2000','Pix','Balanceamento','2022/09/04','2022/09/05');
+
+insert into peca(nome,marca,quantidade,preco,modeloano) VALUES('Pneu','Michellin','4','250','Aro142022'),('Pneu','Pirelli',
+'8','300','Aro152022');
+
+insert into servicopeca(codigo,quantidade,ordemservico) VALUES('1','1','3'),('2','1','4');
+
+insert into servicofunc(ordemservico,matricula,descricao) VALUES('3','1','Servico realizado integralmente'),('4','1','Servico
+com demanda de troca');
+
+
+Pesquisa dados de todos os clientes: select * from cliente;
+Pesquisa Nome e Telefone de todos os clientes: select nome,telefone from cliente;
+Pesquisa placa,marca e modelo de todos os veiculos da cor branca: select placa,marca,modelo from veiculo where cor = 'branco';
+Pesquisa veiculos com variacao da cor branca: select placa,marca,modelo from veiculo where cor like '%preto%';
+Pesquisa nome e telefone de todos os clientes que o nome comece com J: select nome,telefone from cliente where nome like 'm%';
+Pesquisa o nome e telefone de todos os clientes que o último sobrenome seja Silva: select nome, telefone from cliente where nome like '%silva';
+Pesquisa ordem de servico, placa e defeito apresentados pelos carros que deram entrada entre o dia 01/12/2022 a 07/12/2022:
+select ordemservico,placa,defeito from servico where dataent >='2022-12-01' and dataent <='2022-12-07';
+select ordemservico,placa,defeito from servico where dataent between '2022-12-01' and '2022-12-12';
