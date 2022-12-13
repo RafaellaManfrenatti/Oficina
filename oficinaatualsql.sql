@@ -111,3 +111,26 @@ select ordemservico,placa,defeito from servico where dataent between '2022-12-01
 Fazer UPDATE
 
 update cliente set nome='Maria Jariele de Brito' where cpf='123456789-13';
+
+
+Pesquisa dados de todos os clientes: select * from cliente;
+Pesquisa Nome e Telefone de todos os clientes: select nome,telefone from cliente;
+Pesquisa placa,marca e modelo de todos os veiculos da cor branca: select placa,marca,modelo from veiculo where cor = 'branco';
+Pesquisa veiculos com variacao da cor branca: select placa,marca,modelo from veiculo where cor like '%preto%';
+Pesquisa nome e telefone de todos os clientes que o nome comece com J: select nome,telefone from cliente where nome like 'm%';
+Pesquisa o nome e telefone de todos os clientes que o último sobrenome seja Silva: select nome, telefone from cliente where nome like '%silva';
+Pesquisa ordem de servico, placa e defeito apresentados pelos carros que deram entrada entre o dia 01/12/2022 a 07/12/2022:
+select ordemservico,placa,defeito from servico where dataent >='2022-12-01' and dataent <='2022-12-07';
+select ordemservico,placa,defeito from servico where dataent between '2022-12-01' and '2022-12-12';
+Pesquisa ordem de serviço , placa do veiculo e defeito dos veiculos que deram entrada na oficina nos dias 05 e 07 de dezembro: 
+select ordemservico,placa,defeito from servico where dataent in('2022-12-05','2022-12-07');
+Mostra a soma da quantidade das peças no estoque da oficina:
+select sum(quantidade) from peca;
+Mostra o valor total em mercadorias no estoque:
+select sum(quantidade*preco) as 'Valor total do estoque' from peca;
+Calculo do valor medio das peças no estoque:
+select avg(preco) as 'Média de Preço'from peca;
+Mostra a peça com menor preço do estoque:
+select min(preco) as 'Menor preço' from peca;
+Mostra a peça com maior preço no estoque:
+select max(preco) as 'Maior preço' from peca;
