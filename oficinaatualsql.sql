@@ -106,3 +106,8 @@ Pesquisa o nome e telefone de todos os clientes que o último sobrenome seja Sil
 Pesquisa ordem de servico, placa e defeito apresentados pelos carros que deram entrada entre o dia 01/12/2022 a 07/12/2022:
 select ordemservico,placa,defeito from servico where dataent >='2022-12-01' and dataent <='2022-12-07';
 select ordemservico,placa,defeito from servico where dataent between '2022-12-01' and '2022-12-12';
+
+
+Fazer UPDATE
+
+update cliente set nome='Maria Jariele de Brito' where cpf='123456789-13';
