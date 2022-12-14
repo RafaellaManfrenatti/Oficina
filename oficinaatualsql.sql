@@ -134,3 +134,18 @@ Mostra a peça com menor preço do estoque:
 select min(preco) as 'Menor preço' from peca;
 Mostra a peça com maior preço no estoque:
 select max(preco) as 'Maior preço' from peca;
+
+
+Mostranome, teleofne,e qualificção de todos os funcionários:
+select nome,telefone,qualificacao from funcionario;
+
+Mostra nome e telefone de todos os eletricistas:
+select nome,telefone,qualificacao from funcionario where qualificacao='eletricista';
+
+Mostra nome e preço de todos os produtos da marca frasle:
+select nome,preco from peca where marca='frasle';
+
+Mostra ordem de serciço e preçõ pago de todos os serviços que foram pagos a vista no dia 01/12/2022:
+select ordemservico,preco from servico where dataentrada='2022/12/01' and formapagamento='a vista';
+
+
