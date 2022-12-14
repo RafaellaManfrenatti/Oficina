@@ -149,3 +149,12 @@ Mostra ordem de serciço e preçõ pago de todos os serviços que foram pagos a 
 select ordemservico,preco from servico where dataentrada='2022/12/01' and formapagamento='a vista';
 
 
+Pesquisa nome, telefone,nome da rua,numero da casa,bairro e cidade de todos os clientes da oficina:
+
+select cliente.nome,cliente.telefone, endereco.rua, cliente.numerocasa, endereco.bairro, endereco.cidade from endereco inner join cliente
+on endereco.cep=cliente.cep;
+
+
+Pesquisar nome,telefone,placa e modelo do carro de todos os clientes da oficina
+
+select cliente.nome, cliente.telefone, veiculo.placa, veiculo.modelo from cliente inner join veiculo on cliente.cpf=veiculo.cpf;
