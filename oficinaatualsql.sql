@@ -158,3 +158,33 @@ on endereco.cep=cliente.cep;
 Pesquisar nome,telefone,placa e modelo do carro de todos os clientes da oficina
 
 select cliente.nome, cliente.telefone, veiculo.placa, veiculo.modelo from cliente inner join veiculo on cliente.cpf=veiculo.cpf;
+
+18 )Pesquisar nome,telefone,nome da rua, número da casa, bairro e cidade de todos os clientes da oficina.
+	
+	 cliente selecionado . nome , cliente . telefone , endereco . rua , cliente . numerocasa , endereco . bairro , endereco . cidade
+	de endereco inner join cliente
+	no  endereco . cep  =  cliente . cep ;
+	
+	
+	19 )Pesquisar nome, telefone, placa e modelo do carro de todos os clientes.
+	
+	 cliente selecionado . nome , cliente . telefone , veículo . placa , veículo . modelo
+	do cliente inner join veiculo
+	no  cliente . cpf  =  veículo . CPF ;
+
+	20 ) Pesquisar nome e quantidade de todas as peç as usadas na ordem de serviço 1 .
+	
+	selecione  peca . nome , servicopeca . quantidade
+	de peca inner join servicopeca
+	na  peca . codigopeca  =  servicopeca . codigopeca
+	e  servicopeca . ordemservico  =  1 ;	
+	
+	21 ) Pesquisar nome do cliente, telefone, placa do veículo,
+	ordem de serviço e defeito de todos os serviços que já foram feitos na oficina.
+  
+	 cliente selecionado . nome , cliente . telefone , veículo . placa ,
+	. _ ordemservice , service . defeito
+	do cliente inner join veiculo
+	no  cliente . cpf  =  veículo . cpf
+	serviço de junção interna
+	em  veículo . placa  =  servico . placa ;
