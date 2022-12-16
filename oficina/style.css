@@ -1,0 +1,42 @@
+.servicos img{
+    height:300px;
+    width:100%;
+}
+
+.carrossel img{
+    height:600px;
+}
+.sociais{
+    padding:20px;
+}
+.sociais img{
+    width:50px;
+    height:50px;
+}
+.footer{
+    background-color: #ccc;
+    padding:20px;
+}
+.menu2 a {
+color:black;
+}
+.menu{
+    background-color: rgba(204, 204, 204, 0.733);
+    height: 100px;
+}
+.login{
+    margin-top:100px;
+   
+}
+.car img{
+    width:5px;
+    height:5px;
+}
+.white{
+    color:#000;
+    background-color:#fff;
+}
+
+
+
+  
