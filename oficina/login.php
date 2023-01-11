@@ -1,48 +1,78 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <!-- Meta tags Obrigatórias -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php
+    require_once 'head.php';   
+    include_once 'conexão.php'; 
+  ?>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="login.css">
+<?php
+$dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+if(!empty($dados["btnlogin"]))
+{var_dump($dados);
+$sql = "SELECT matricula,nome, usuario, senha
+FROM funcionario
+WHERE usuario =:usuario
+LIMIT 1";
+$resultado= $conn->prepare($sql);
+$resultado->bindParam(':usuario', $dados['usuario'], PDO::PARAM_STR);
+$resultado->execute();
 
-    <title>Oficina Conserta Tudo</title>
-  </head>
-  <body>
-  
-    <div id="login">
-        <h3 class="text-center text-white pt-5">Faça seu Login</h3>
-        <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
-                            <h3 class="text-center text-info">Login</h3>
-                            <div class="form-group">
-                                <label for="username" class="text-info">Usuário</label><br>
-                                <input type="text" name="username" id="username" placeholder="seuemail@exemplo.com.br" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="text-info">Senha</label><br>
-                                <input type="text" name="password" id="password" placeholder="Digite a senha aqui" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="remember-me" class="text-info"><span>Esqueci minha senha</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Entre">
-                            </div>
-                            <div id="register-link" class="text-right">
-                                <a href="#" class="text-info">Não tenho cadastro</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+if(($resultado) AND ($resultado->rowCount() !=0)){
+    $linha = $resultado->fetch(PDO::FETCH_ASSOC);
+    var_dump($linha);
+}
+
+}
+
+?>
+
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Faça seu login</h3>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="fab fa-facebook-square"></i></span>
+					<span><i class="fab fa-google-plus-square"></i></span>
+					<span><i class="fab fa-twitter-square"></i></span>
+				</div>
+			</div>
+			<div class="card-body">
+				<form method="POST" action="">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"> Usuário</i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="usuario@seuemail.com" name="usuario">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key">Senha</i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="Digite sua senha aqui" name="senha">
+					</div>
+				
+					<div class="form-group">
+						<input type="submit" value="Cadastre-se" class="btn float-right ">
+					</div>
+
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn" name="btnlogin">
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				
+				<div class="d-flex justify-content-center links">
+					<a href="#">Esqueceu a Senha?</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php
+   
+  ?>
 </body>
 
 
