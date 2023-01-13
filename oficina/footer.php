@@ -44,7 +44,7 @@
                           <a class="nav-link" href="faleconosco.php">Fale Conosco</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="loginadm.php">Área do Administrador</a>
+                          <a class="nav-link" href="login.php">Área do Administrador</a>
                         </li>
                       </ul>
             </div>

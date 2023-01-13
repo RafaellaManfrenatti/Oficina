@@ -1,27 +1,49 @@
 <?php
     require_once 'head.php';   
-    include_once 'conexão.php'; 
+	include_once 'conexão.php'; 
+	
+	session_start();
+	ob_start();
+
+
   ?>
 
 <?php
+
+//echo "senha".password_hash(123, PASSWORD_DEFAULT); criptografia de senhas//
+
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
 if(!empty($dados["btnlogin"]))
 {var_dump($dados);
-$sql = "SELECT matricula,nome, usuario, senha
+
+$sql = "SELECT matricula,nome, email, senha
 FROM funcionario
-WHERE usuario =:usuario
+WHERE email =:usuario
 LIMIT 1";
+
 $resultado= $conn->prepare($sql);
 $resultado->bindParam(':usuario', $dados['usuario'], PDO::PARAM_STR);
 $resultado->execute();
 
 if(($resultado) AND ($resultado->rowCount() !=0)){
     $linha = $resultado->fetch(PDO::FETCH_ASSOC);
-    var_dump($linha);
+	var_dump($linha);
+	
+ if(password_verify($dados['senha'],$linha['senha']))
+    {$_SESSION['nome']=$linha['nome'];
+
+	header("Location: administrativo.php");	
 }
 
+ else{$_SESSION['msg']="Usuário ou senha inválido!";}
 }
 
+else{$_SESSION['msg']="Usuário ou senha inválido!";}
+}
+
+if(isset($_SESSION['msg'])){echo $_SESSION['msg']; unset($_SESSION['msg']);
+}
 ?>
 
 <div class="container">
@@ -59,6 +81,7 @@ if(($resultado) AND ($resultado->rowCount() !=0)){
 						<input type="submit" value="Login" class="btn float-right login_btn" name="btnlogin">
 					</div>
 				</form>
+
 			</div>
 			<div class="card-footer">
 				
